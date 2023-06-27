@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impekbles</title>
+    {% load bootstrap5 %}
+    {% load static %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript%}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <!-- Barra de navegacion -->
+    <header class="header">
+        <div class="sesion">
+            <a class="elemento text-decoration-none" href="{% url 'login'%}">Inicio Sesion</a>
+            <a class="elemento text-decoration-none" href="{% url 'create-account'%}">Registrarme</a>
+        </div>
+        <div class="contenedor">
+            <div class="barra">
+                <a href="{% url 'home' %}" class="logo centrar-texto">
+                    <img width="250" src="{% static 'img/Logos/LNL2.jpg' %}" alt="logo">
+                </a>
+                <nav class="navegacion">
+                    <a href="#" class="navegacion__enlace text-decoration-none">productos</a>
+                    <a href="#" class="navegacion__enlace text-decoration-none">nosotros</a>
+                    <a href="#" class="navegacion__enlace text-decoration-none">contacto</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- Termino barra de navegacion -->
+    {% block body %}
+
+    {% endblock %}
+    <!-- Footer -->
+    <footer class="no-margin footer">
+        <div>
+            <div class="barra">
+                <a href="{% url 'home' %}" class="logo centrar-texto">
+                    <img width="250" src="{% static 'img/Logos/LNL2.jpg' %}" alt="logo">
+                </a>
+                <nav class="navegacion">
+                    <a href="#" class="navegacion__enlace text-decoration-none">productos</a>
+                    <a href="#" class="navegacion__enlace text-decoration-none">nosotros</a>
+                    <a href="#" class="navegacion__enlace text-decoration-none">contacto</a>                    
+                </nav>                
+            </div>
+        </div>
+    </footer>
+    <!-- Termino de footer -->
+</body>
+</html>

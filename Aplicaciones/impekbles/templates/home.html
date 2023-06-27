@@ -1,0 +1,65 @@
+{% extends './index.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impekbles</title>
+  {% load bootstrap5 %}
+  {% load static %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript%}
+  <link rel="stylesheet" href="{% static 'ccs/style.css'%}">
+</head>
+
+<body>
+  {% block body%}
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'img/banner/banner_1.png'%}" class="d-block w-100" alt="banner_1">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'img/banner/banner_2.png'%}" class="d-block w-100" alt="banner_2">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'img/banner/banner_3.png'%}" class="d-block w-100" alt="banner_3">
+      </div>
+    </div>
+  </div>
+
+  <div class="main">
+    <h3 class="centrar-texto text-uppercase fw-light my-5">La mejor calidad en cuanto a cables</h3>
+    <div class="contenedor-main">
+      <picture>
+        <img src="{% static 'img/Fotos Cable Inst/foto_n.jpg'%}" alt="calbe">
+      </picture>
+
+      <p class="texto-main">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a est facilisis, vestibulum
+        felis quis,
+        consequat ante. Duis vehicula tellus justo, ut viverra dolor blandit id. Proin feugiat quam at elit vulputate
+        posuere. Aenean semper nulla nisl, eget bibendum enim ullamcorper vitae. Aenean sed dui aliquam, varius odio
+        sed, pellentesque tortor. Suspendisse potenti. In eget ultricies lectus, quis malesuada est. Donec facilisis
+        augue lacus, in mattis tellus gravida quis. Fusce tempor convallis orci ac luctus. Aenean eu elementum ante, sed
+        tincidunt dolor. Aliquam fringilla mi ullamcorper ante semper facilisis. Fusce ultricies pretium ipsum, vitae
+        tristique arcu pulvinar eu. Donec scelerisque odio hendrerit sem efficitur faucibus.
+
+        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam posuere lacus vitae
+        aliquam fermentum. Suspendisse enim urna, mollis nec leo eget, rhoncus pulvinar dui. Pellentesque habitant morbi
+        tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas feugiat ex quis urna sagittis
+        consectetur. Proin vitae nulla porta, interdum nibh vel, molestie nibh. Proin eu cursus quam, vitae dapibus
+        lorem. Donec ullamcorper dignissim leo quis auctor. Nam non molestie nisl, ac lobortis sapien. Curabitur ut
+        facilisis nisl, vel luctus eros. Phasellus eget lacus sed eros blandit rutrum. Integer et vestibulum nulla,
+        iaculis finibus massa. Donec facilisis sit amet quam nec blandit.
+      </p>
+    </div>
+    <div class="boton">
+      <a class="boton--color text-decoration-none" href="#" role="button">Ver Productos</a>
+    </diev>
+  </div>
+
+  {% endblock%}
+</body>
+
+</html>

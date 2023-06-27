@@ -1,0 +1,35 @@
+{% load bootstrap5 %}
+{% load static %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<link rel="stylesheet" href="{% static 'css/style.css'%}">
+<link rel="stylesheet" href="{% static 'css/normalize.css'%}">
+<body class="body-iniciosesion">
+    <div class="centrado">
+        <a href="{% url 'home'%}">
+            <button>
+                <div></div>
+                <div></div>
+                <div></div>
+            </button>
+        </a>    
+        <img src="{% static 'img/Logos/LBS1fda.jpg'%}" alt="foto-logo" class="imagen-centrado">
+        <!-- <h1 class="titulo-iniciar">Iniciar Sesión</h1> -->
+        <form class="form-iniciosesion" method="POST">
+            {% csrf_token %}
+            <div class="txt_field">
+                <input type="email" required>
+                <label>Correo Electronico</label>
+            </div>
+            <div class="txt_field">
+                <input type="password" required>
+                <label>Contraseña</label>
+            </div>
+            <div class="contrasena">Olvidaste tu contraseña?</div>
+            <input class="boton boton--primario boton--iniciar" type="submit" value="Iniciar Sesión">
+            <div class="iniciosesion-link">
+                No tienes cuenta? <a href="{% url 'create-account'%}">Regístrate</a>
+            </div>
+        </form>
+    </div>
+</body>
