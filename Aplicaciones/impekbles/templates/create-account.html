@@ -4,7 +4,7 @@
 {% bootstrap_javascript %}
 <link rel="stylesheet" href="{% static 'css/style.css'%}">
 <link rel="stylesheet" href="{% static 'css/normalize.css'%}">
-<body>
+<body class="body-registro">
     <div class="contendor-registro">
         <a href="{% url 'home'%}">
             <button>
@@ -13,48 +13,49 @@
                 <div></div>
             </button>
         </a> 
-        <img width="250" src="{% static 'img/Logos/LBS1fda.jpg' %}" alt="">
-        <h1 class="title">Registro</h1>
-        <form action="/signup/" method="POST" class="formulario-registro">            
-            {% csrf_token %}
-            <div class="titular">
-                <div class="camp">
-                    <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" name="nombre" id="nombre" class="campo__field">
-                </div>
-                <div class="camp">
-                    <label for="apellido" class="form-label">Apellido</label>
-                    <input type="text" name="apellido" id="apellido" class="campo__field">
-                </div>
-                <div class="camp">
-                    <label for="rut" class="form-label">Rut</label>
-                    <input type="text" name="rut" id="rut" class="campo__field">
-                </div>
-                <div class="camp">
-                    <label for="fecha" class="form-label">Fecha de Nacimiento</label>
-                    <input type="date" name="fecha" id="fecha" class="campo__field">
-                </div>
-                <div class="camp">
-                    <label for="email" class="form-label">E-mail</label>
-                    <input type="email" name="email" id="email" class="campo__field">
-                </div>
-                <div class="camp">
-                    <label for="region" class="form-label">Region</label>
-                    <select name="region" id="region" class="form-control">
-                        {% for r in regions %}
-                        <option value="{{r.id_region}}">{{r.region}}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-                <div class="camp">
-                    <label for="comuna" class="form-label">Comuna</label>
-                    <select name="comuma" id="comuna" class="form-control">
-                        {% for c in  comun%}
-                        <option value="{{c.id_comuna}}">{{c.comuna}}</option>
-                        {% endfor %}
-                    </select>
-                </div>
+        <img class="imagen-logo" src="{% static 'img/Logos/LBL_2.jpg' %}" alt="">
+        <div class="container-registro">
+            <div class="columna">
+                <h2>Información Personal</h2>
+                <form class="form-registro">
+                    <label class="lblregistro" for="rut">RUT:</label>
+                    <input class="iptregistro" type="text" id="rut" name="rut" required>
+
+                    <label class="lblregistro" for="nombre">Nombre:</label>
+                    <input class="iptregistro" type="text" id="nombre" name="nombre" required>
+
+                    <label class="lblregistro" for="apellidoPaterno">Apellido Paterno:</label>
+                    <input class="iptregistro" type="text" id="apellidoPaterno" name="apellidoPaterno" required>
+
+                    <label class="lblregistro" for="apellidoMaterno">Apellido Materno:</label>
+                    <input class="iptregistro" type="text" id="apellidoMaterno" name="apellidoMaterno" required>
+
+                    <label class="lblregistro" for="telefono">Teléfono:</label>
+                    <input class="iptregistro" type="text" id="telefono" name="telefono" required>
+
+                    <label class="lblregistro" for="correo">Correo:</label>
+                    <input class="iptregistro" type="email" id="correo" name="correo" required>
+                </form>
             </div>
-        </form>
+
+            <div class="columna">
+                <h2>Dirección</h2>
+                <form class="form-registro">
+                    <label class="lblregistro" for="contrasena">Contraseña:</label>
+                    <input class="iptregistro" type="password" name="contraseña" required>
+                    
+                    <label class="lblregistro" for="region">Región:</label>
+                    <select name="region" id="region"></select>
+
+                    <label class="lblregistro" for="comuna">Comuna:</label>
+                    <select name="comuna" id="comuna" required></select>
+
+                    <label class="lblregistro" for="direccion">Dirección:</label>
+                    <input class="iptregistro" type="text" id="direccion" name="direccion" required>
+
+                    <button class="boton-enviar" type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
     </div>
 </body>
