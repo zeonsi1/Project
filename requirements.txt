@@ -1,0 +1,5 @@
+# Usen esto para instalar las dependencias de ahora en adelante. Entiéndase dependencias como los módulos que van a usar.
+```
+# pip install -r requirements.txt (para Windows) / python3 pip install -r requirements.txt (para Linux y macOS)
+```
+django-bootstrap-v5
