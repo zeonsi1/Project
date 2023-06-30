@@ -21,19 +21,19 @@
 
         <div class="contacto-bg">
         </div>
-
-        <form action="" class="fromulario" method="post">
+        <form action="{% url 'enviar_correo' %}" class="formulario" method="post">
+            {% csrf_token %}
             <div class="campo">
                 <label for="nombre" class="campo__label">Nombre</label>
-                <input type="text" class="campo__field" placeholder="Tu Nombre" id="nombre">
+                <input type="text" class="campo__field" placeholder="Tu Nombre" id="nombre" name="user_name">
             </div>
             <div class="campo">
                 <label for="email" class="campo__label">E-mail</label>
-                <input type="text" class="campo__field" placeholder="Tu E-mail" id="email">
+                <input type="text" class="campo__field" placeholder="Tu E-mail" id="email" name="user_email">
             </div>
             <div class="campo">
                 <label for="mensaje" class="campo__label">Mensaje</label>
-                <textarea id="mensaje" class="campo__field campo__field--textarea"></textarea>
+                <textarea id="mensaje" class="campo__field campo__field--textarea" name="user_message"></textarea>
             </div>
 
             <div class="campo boton">
@@ -42,6 +42,7 @@
         </form>
     </main>
 </body>
+
 {% endblock %}
 
 </html>
