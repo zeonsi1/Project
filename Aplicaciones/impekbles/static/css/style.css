@@ -158,18 +158,18 @@ picture {
 .boton {
     display: block;
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 2rem;
     text-transform: uppercase;
     font-weight: 100;
     border: none;
-    margin-top: 2rem;
+    margin: 6rem 0 6rem 0;
 }
 
 .boton--color {
     background-color: var(--negro);
     color: var(--blanco);
     padding: 1rem 3rem;
-    border-radius: 10rem;
+    border-radius: 5rem;
 }
 
 .boton--color:hover {
@@ -336,4 +336,87 @@ button:hover div:last-child {
 
 .imagen-centrado {
     width: 400px;
+}
+
+/* Sobre Nosotros */
+
+.title {
+    font-weight: 100;
+    margin-top: 5rem;
+    font-size: 4rem;
+    text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+    .sobre-nosotros {
+        margin-top: 5rem;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .sobre-nosotros__texto {
+        flex: 0 0 calc(50% - 1rem);
+        margin-top: 5rem;
+    }
+
+    .sobre-nosotros__imagen {
+        flex: 0 0 calc(50% - 1rem);
+    }
+}
+
+/* Contacto */
+.contenedor-contacto {
+    width: min(90%, 120rem);
+    margin: 0 auto;
+}
+
+.contacto-bg {
+    background-image: url("/static/img/banner/banner.png");
+    height: 40rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.formulario {
+    background-color: var(--blanco);
+    margin: -5rem auto 0 auto;
+    width: 95%;
+    padding: 5rem;
+}
+
+.campo {
+    display: flex;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+.campo__label {
+    flex: 0 0 9rem;
+    text-align: right;
+    padding-right: 2rem;
+}
+
+.campo__field {
+    flex: 1;
+    border: 1px solid var(--negro);
+}
+
+.campo__field--textarea {
+    height: 20rem;
+}
+
+.error {
+    background-color: rgb(185, 0, 0);
+    text-align: center;
+    padding: 1rem;
+    color: var(--blanco);
+    text-transform: uppercase;
+}
+
+.correcto {
+    background-color: rgb(74, 185, 0);
+    text-align: center;
+    padding: 1rem;
+    color: var(--blanco);
+    text-transform: uppercase;
 }

@@ -9,6 +9,7 @@
     {% bootstrap_css %}
     {% bootstrap_javascript%}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
 </head>
 <body>
     <!-- Barra de navegacion -->
@@ -23,9 +24,9 @@
                     <img width="250" src="{% static 'img/Logos/LNL2.jpg' %}" alt="logo">
                 </a>
                 <nav class="navegacion">
-                    <a href="#" class="navegacion__enlace text-decoration-none">productos</a>
-                    <a href="#" class="navegacion__enlace text-decoration-none">nosotros</a>
-                    <a href="#" class="navegacion__enlace text-decoration-none">contacto</a>
+                    <a href="{% url 'producto'%}" class="navegacion__enlace text-decoration-none">productos</a>
+                    <a href="{% url 'nosotros'%}" class="navegacion__enlace text-decoration-none">nosotros</a>
+                    <a href="{% url 'contacto'%}" class="navegacion__enlace text-decoration-none">contacto</a>
                 </nav>
             </div>
         </div>
@@ -42,9 +43,9 @@
                     <img width="250" src="{% static 'img/Logos/LNL2.jpg' %}" alt="logo">
                 </a>
                 <nav class="navegacion">
-                    <a href="#" class="navegacion__enlace text-decoration-none">productos</a>
-                    <a href="#" class="navegacion__enlace text-decoration-none">nosotros</a>
-                    <a href="#" class="navegacion__enlace text-decoration-none">contacto</a>                    
+                    <a href="{% url 'producto'%}" class="navegacion__enlace text-decoration-none">productos</a>
+                    <a href="{% url 'nosotros'%}" class="navegacion__enlace text-decoration-none">nosotros</a>
+                    <a href="{% url 'contacto'%}" class="navegacion__enlace text-decoration-none">contacto</a>                    
                 </nav>                
             </div>
         </div>

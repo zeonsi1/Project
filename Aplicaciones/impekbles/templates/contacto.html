@@ -1,0 +1,47 @@
+{% extends './index.html'%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impekbles</title>
+    {% load bootstrap5 %}
+    {% load static %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript%}
+    <link rel="stylesheet" href="{% static 'ccs/style.css'%}">
+    <link rel="stylesheet" href="{% static 'ccs/normalize.css'%}">
+    <script src="{% static 'js/app.js'%}"></script>
+</head>
+{% block body %}
+<body>
+    <main class="contenedor-contacto">
+        <h1 class="centrar-texto title">Contacto</h1>
+
+        <div class="contacto-bg">
+        </div>
+
+        <form action="" class="fromulario" method="post">
+            <div class="campo">
+                <label for="nombre" class="campo__label">Nombre</label>
+                <input type="text" class="campo__field" placeholder="Tu Nombre" id="nombre">
+            </div>
+            <div class="campo">
+                <label for="email" class="campo__label">E-mail</label>
+                <input type="text" class="campo__field" placeholder="Tu E-mail" id="email">
+            </div>
+            <div class="campo">
+                <label for="mensaje" class="campo__label">Mensaje</label>
+                <textarea id="mensaje" class="campo__field campo__field--textarea"></textarea>
+            </div>
+
+            <div class="campo boton">
+                <input type="submit" value="Enviar" class="boton--color fw-light text-uppercase">
+            </div>
+        </form>
+    </main>
+</body>
+{% endblock %}
+
+</html>

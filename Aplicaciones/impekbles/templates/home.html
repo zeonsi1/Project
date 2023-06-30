@@ -11,10 +11,11 @@
   {% bootstrap_css %}
   {% bootstrap_javascript%}
   <link rel="stylesheet" href="{% static 'ccs/style.css'%}">
+  <link rel="stylesheet" href="{% static 'ccs/normalize.css'%}">
 </head>
-
+{% block body%}
 <body>
-  {% block body%}
+
   <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
@@ -55,11 +56,11 @@
       </p>
     </div>
     <div class="boton">
-      <a class="boton--color text-decoration-none" href="#" role="button">Ver Productos</a>
-    </diev>
+      <a class="boton--color text-decoration-none" href="{% url 'producto'%}" role="button">Ver Productos</a>
+    </div>
   </div>
 
-  {% endblock%}
-</body>
 
+</body>
+{% endblock%}
 </html>

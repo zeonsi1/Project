@@ -4,62 +4,57 @@
 {% bootstrap_javascript %}
 <link rel="stylesheet" href="{% static 'css/style.css'%}">
 <link rel="stylesheet" href="{% static 'css/normalize.css'%}">
-<body class="body-iniciosesion">
-    <div class="centrado">
+<body>
+    <div class="contendor-registro">
         <a href="{% url 'home'%}">
             <button>
                 <div></div>
                 <div></div>
                 <div></div>
             </button>
-        </a>    
-        <img src="{% static 'img/Logos/LBS1fda.jpg'%}" alt="foto-logo" class="imagen-centrado">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 mx-auto p-5 text-center">
-                    <h1>Registro</h1><br>
-                    <form action="userAdd" method="POST">
-                        {% csrf_token %}
-                        <div>
-                            <label for="rut" class="form-label">Rut</label>
-                            <input type="text" name="rut" id="rut" class="form-control">
-                        </div>
-                        <div>
-                            <label for="nombre" class="form-label">Nombre</label>
-                            <input type="text" name="nombre" id="nombre" class="form-control">
-                        </div>
-                        <div>
-                            <label for="appPaterno" class="form-label">Apellido Paterno</label>
-                            <input type="text" name="appPaterno" id="appPaterno" class="form-control">
-                        </div>
-                        <div>
-                            <label for="appMaterno" class="form-label">Apellido Materno</label>
-                            <input type="text" name="appMaterno" id="appMaterno" class="form-control">
-                        </div>                        
-                        <div>
-                            <label for="telefono" class="form-label">Telefono</label>
-                            <input type="text" name="telefono" id="telefono" class="form-control">
-                        </div>
-                        <div>
-                            <label for="region" class="form-label">Region</label>
-                            <select name="region" id="id_region" class="form-control">
-                                {% for region in region%}
-                                <option value="{{region.region}}">{{region.region}}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                        <div>
-                            <label for="correo" class="form-label">Correo</label>
-                            <input type="email" name="correo" id="correo" class="form-control">
-                        </div>
-                        <div>
-                            <label for="direccion" class="form-label">Direccion</label>
-                            <input type="text" name="direccion" id="direccion" class="form-control">
-                        </div><br><br>
-                        <input type="submit" name="opcion" value="Agregar" class="btn btn-success">
-                    </form><br><br>
+        </a> 
+        <img width="250" src="{% static 'img/Logos/LBS1fda.jpg' %}" alt="">
+        <h1 class="title">Registro</h1>
+        <form action="/signup/" method="POST" class="formulario-registro">            
+            {% csrf_token %}
+            <div class="titular">
+                <div class="camp">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" name="nombre" id="nombre" class="campo__field">
+                </div>
+                <div class="camp">
+                    <label for="apellido" class="form-label">Apellido</label>
+                    <input type="text" name="apellido" id="apellido" class="campo__field">
+                </div>
+                <div class="camp">
+                    <label for="rut" class="form-label">Rut</label>
+                    <input type="text" name="rut" id="rut" class="campo__field">
+                </div>
+                <div class="camp">
+                    <label for="fecha" class="form-label">Fecha de Nacimiento</label>
+                    <input type="date" name="fecha" id="fecha" class="campo__field">
+                </div>
+                <div class="camp">
+                    <label for="email" class="form-label">E-mail</label>
+                    <input type="email" name="email" id="email" class="campo__field">
+                </div>
+                <div class="camp">
+                    <label for="region" class="form-label">Region</label>
+                    <select name="region" id="region" class="form-control">
+                        {% for r in regions %}
+                        <option value="{{r.id_region}}">{{r.region}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="camp">
+                    <label for="comuna" class="form-label">Comuna</label>
+                    <select name="comuma" id="comuna" class="form-control">
+                        {% for c in  comun%}
+                        <option value="{{c.id_comuna}}">{{c.comuna}}</option>
+                        {% endfor %}
+                    </select>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 </body>

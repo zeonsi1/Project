@@ -13,7 +13,6 @@ class producto (models.Model):
     def __str__(self):
         return str(self.nombre_producto)
     
-
 class carrito (models.Model):
 
     id_carrito = models.AutoField(primary_key = True, db_column = 'id_producto', verbose_name = 'ID_producto')
@@ -60,7 +59,8 @@ class usuario(models.Model):
     snombre = models.CharField(max_length = 25, blank = True, null = True)
     appaterno = models.CharField(max_length = 25, blank = False, null = False)
     apmaterno = models.CharField(max_length = 25, blank = False, null = False)
-    fecha_nacimiento = models.DateField(blank = False, null = False)
+    fecha_nacimiento = models.DateField(blank = True, null = True)
+    telefono = models.CharField(max_length = 10, blank = False, null = False)
     correo_usuario = models.CharField(max_length = 50, blank = False, null = False)
     contra_usuario = models.CharField(max_length = 50, blank = False, null = False)
     direccion_usuario = models.CharField(max_length = 50, blank = False, null = False)

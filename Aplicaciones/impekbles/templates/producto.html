@@ -1,0 +1,37 @@
+{% extends './index.html'%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impekbles</title>
+    {% load bootstrap5 %}
+    {% load static %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript%}
+    <link rel="stylesheet" href="{% static 'ccs/style.css'%}">
+    <link rel="stylesheet" href="{% static 'ccs/normalize.css'%}">
+</head>
+{% block body %}
+
+<body>
+    <main class="contenedor">
+        <h1 class="centrar-texto title">Productos</h1>
+        <div class="container-items">
+            <div class="items">
+                <figure>
+                    <img width="300" height="300" src="{% static 'img/Fotos Cable AUX/Foto 22.jpg'%}" alt="producto">
+                </figure>
+                <div class="info-product">
+                    <h2>Cable Aux</h2>
+                    <p class="price">$12990</p>
+                    <button class="btn-add-cart button boton--color">Añadir al carrito</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+{% endblock %}
+
+</html>
