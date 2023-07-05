@@ -33,35 +33,36 @@
                     <label class="lblregistro" for="telefono">Teléfono:</label>
                     <input class="iptregistro" type="text" id="telefono" name="telefono" required>
 
-                    <label class="lblregistro" for="correo">Correo:</label>
-                    <input class="iptregistro" type="email" id="correo" name="correo" required>
                 </form>
             </div>
-
+            
             <div class="columna">
-                <h2>Dirección</h2>
                 <form class="form-registro">
+                     
+                    <label class="lblcorreo" for="correo">Correo:</label>
+                    <input class="iptregistro" type="email" id="correo" name="correo" required>
+
                     <label class="lblregistro" for="contrasena">Contraseña:</label>
                     <input class="iptregistro" type="password" name="contraseña" required>
-                    
+
                     <label class="lblregistro" for="region">Región:</label>
-                    <select name="region" id="region">
+                    <select class="ipt" name="region" id="region">
                         {% for c in regions %}
                         <option value = "{{c.id_region}}">{{c.region}}</option>
                         {% endfor %}
                     </select>
 
                     <label class="lblregistro" for="comuna">Comuna:</label>
-                    <select name="comuna" id="comuna">
+                    <select class="ipt" name="comuna" id="comuna">
                         {% for r in comun %}
                         <option value = "{{c.id_comuna}}">{{c.comuna}}</option>
                         {% endfor%}
                     </select>
 
-                    <label class="lblregistro" for="direccion">Dirección:</label>
+                    <label class="lbldireccion" for="direccion">Dirección:</label>
                     <input class="iptregistro" type="text" id="direccion" name="direccion" required>
 
-                    <button class="boton-enviar" type="submit">Enviar</button>
+                    <button class="boton-enviar" type="submit">Registrar</button>
                 </form>
             </div>
         </div>

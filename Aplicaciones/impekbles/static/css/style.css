@@ -588,3 +588,82 @@ img {
     text-align: center;
     font-size: 20px;
 }
+
+.body-registro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: white;
+  }
+  
+.container-registro {
+    width: 600px;
+    background-color: gainsboro;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+
+}
+  
+.columna {
+    flex: 1;
+    padding: 10px;
+}
+  
+.form-registro {
+    display: grid;
+    gap: 10px;
+}
+  
+.lblregistro {
+    font-weight: bold;
+}
+  
+.iptregistro {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+  
+.boton-enviar {
+    margin-top: 10px;
+    border-radius: 10px;
+    height: 40px;
+    width: 270px;
+    background-color: black;
+    color: var(--blanco);
+    align-items: center;
+    justify-content: center;
+}
+
+.boton-enviar:hover {
+    color: var(--amarillo);
+}
+
+.imagen-logo {
+    width: 500px;
+    margin: 0 20px 0 45px;
+}
+
+.lblregistro {
+    margin-top: 20px;
+}
+
+.ipt {
+    width: 100%;
+    height: 30px;
+}
+
+.lblcorreo {
+    margin-top: 121px;
+    font-weight: bold;
+}
+
+.lbldireccion {
+    margin-top: 22px;
+    font-weight: bold;
+}
