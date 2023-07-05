@@ -10,6 +10,5 @@ urlpatterns = [
     path('productos', views.producto, name='producto'),
     path('contacto', views.contacto, name='contacto'),
     path('nosotros', views.nosotros, name='nosotros'),
-    path('signup/', views.signup, name='signup'),
     path('enviar-correo/', email_view, name='enviar_correo'),
 ]

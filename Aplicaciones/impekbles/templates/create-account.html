@@ -45,10 +45,18 @@
                     <input class="iptregistro" type="password" name="contraseña" required>
                     
                     <label class="lblregistro" for="region">Región:</label>
-                    <select name="region" id="region"></select>
+                    <select name="region" id="region">
+                        {% for c in regions %}
+                        <option value = "{{c.id_region}}">{{c.region}}</option>
+                        {% endfor %}
+                    </select>
 
                     <label class="lblregistro" for="comuna">Comuna:</label>
-                    <select name="comuna" id="comuna" required></select>
+                    <select name="comuna" id="comuna">
+                        {% for r in comun %}
+                        <option value = "{{c.id_comuna}}">{{c.comuna}}</option>
+                        {% endfor%}
+                    </select>
 
                     <label class="lblregistro" for="direccion">Dirección:</label>
                     <input class="iptregistro" type="text" id="direccion" name="direccion" required>
