@@ -8,7 +8,8 @@ class producto (models.Model):
     descripcion_producto = models.CharField(max_length = 150, blank = False, null = False)
     precio = models.IntegerField()
     stock = models.PositiveSmallIntegerField()
-    metros = models.PositiveSmallIntegerField()
+    metros = models.FloatField()
+    imagen = models.ImageField(upload_to="productos", null=True)
 
     def __str__(self):
         return str(self.nombre_producto)
@@ -33,45 +34,23 @@ class tipoUsuario (models.Model):
     def __str__(self):
         return str(self.tipo_usuario)
     
-class region (models.Model):
-
-    id_region = models.AutoField(primary_key = True, db_column = 'id_region', verbose_name = 'ID_region')
-    region = models.CharField(max_length = 70, blank = False, null = False)
-
-    def __str__(self):
-        return str(self.region)
-
-class comuna (models.Model):
-
-    id_comuna = models.AutoField(primary_key = True, db_column = 'id_comuna', verbose_name = 'ID_comuna')
-    comuna = models.CharField(max_length = 70, blank = False, null = False)
-    id_region = models.ForeignKey('region', on_delete = models.CASCADE, db_column = 'id_region')
-
-    def __str__(self):
-        return str(self.comuna)
-    
 class usuario(models.Model):
 
-    id_usuario = models.CharField(primary_key = True, max_length = 6)
+    id_usuario = models.AutoField(primary_key = True, db_column='id_usuario', verbose_name='ID_usuario')
     rut_usuario = models.CharField(max_length = 10, blank = False, null = False)
     dv_usuario = models.CharField(max_length = 1, blank = False, null = False)
-    pnombre = models.CharField(max_length = 25, blank = False, null = False)
-    snombre = models.CharField(max_length = 25, blank = True, null = True)
+    nombre = models.CharField(max_length = 25, blank = False, null = False)
     appaterno = models.CharField(max_length = 25, blank = False, null = False)
     apmaterno = models.CharField(max_length = 25, blank = False, null = False)
-    fecha_nacimiento = models.DateField(blank = True, null = True)
-    telefono = models.CharField(max_length = 10, blank = False, null = False)
+    telefono = models.CharField(max_length = 10, blank = True, null = False)
     correo_usuario = models.CharField(max_length = 50, blank = False, null = False)
     contra_usuario = models.CharField(max_length = 50, blank = False, null = False)
     direccion_usuario = models.CharField(max_length = 50, blank = False, null = False)
-    id_comuna = models.ForeignKey('comuna', on_delete = models.CASCADE, db_column = 'id_comuna')
+    region_usuario = models.CharField(max_length = 100, blank = False, null = True)
+    comuna_usuario = models.CharField(max_length = 100, blank = False, null = True)
     id_tipo = models.ForeignKey('tipoUsuario', on_delete = models.CASCADE, db_column = 'id_tipo')
     activo = models.IntegerField()
 
     def __str__(self):
-
-        if str(self.snombre) != "":
-            return str(self.pnombre) + " " + str(self.snombre) + " " + str(self.appaterno) + " " + str(self.apmaterno)
-        else:
-            return str(self.pnombre) + " " + str(self.appaterno) + " " + str(self.apmaterno)
+        return str(self.nombre) + " " + str(self.appaterno) + " " + str(self.apmaterno)
         

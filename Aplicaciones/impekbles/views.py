@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from .models import region, comuna
+from django.shortcuts import render, redirect
+from .models import producto, usuario, tipoUsuario
 from django.shortcuts import render
 from django.core.mail import send_mail
 from .forms import EmailForm
@@ -32,21 +32,59 @@ def home(request):
     return render(request, "home.html")
 
 def createuser(request):
-    if request.method != "POST":
-        regiones = region.objects.all()
-        comunas = comuna.objects.all()
-        context = {"regions" : regiones, "comun" : comunas}
-        return render(request, "create-account.html", context)
+    if request.method != "POST":        
+        return render(request, "create-account.html")
     else:
         rut = request.POST["rut"]
-    return render(request, "create-account.html", context)
+        nombre = request.POST["nombre"]
+        appaterno = request.POST["apellidoPaterno"]
+        apmaterno = request.POST["apellidoMaterno"]
+        telefono = request.POST["telefono"]
+        correo = request.POST["correo"]
+        contrasena = request.POST["contrasena"]
+        region = request.POST["region"]
+        comuna = request.POST["comuna"]
+        direccion = request.POST["direccion"]
 
 
-def login(request):    
-    return render(request, "login.html")
+        objTipo = tipoUsuario.objects.get(id_tipo = 1)
+        objUsuario = usuario.objects.create(
+            rut_usuario = rut,
+            nombre = nombre,
+            appaterno = appaterno,
+            apmaterno = apmaterno,
+            telefono = telefono,
+            correo_usuario = correo,
+            contra_usuario = contrasena,
+            region_usuario = region,
+            comuna_usuario = comuna,
+            direccion_usuario = direccion,
+            id_tipo = objTipo,
+            activo = 1,
+        )
+        objUsuario.save()
+        context = {"mensaje": "OK Registrado Correctamente"}
+        return redirect('home')
 
-def producto(request):
-    return render(request, 'producto.html')
+
+
+def login(request):
+    context = {}
+    if request.method != 'POST':
+        return render(request, "login.html", context)
+    else:
+        email = request.POST["email"]
+        password = request.POST["password"]
+
+        if usuario.objects.get(correo_usuario = email) and usuario.objects.get(contra_usuario = password):
+            request.session[""]
+
+def productos(request):
+    products = producto.objects.all()
+    context = {
+        'product': products
+    }
+    return render(request, 'producto.html', context)
 
 def contacto(request):
     return render(request, "contacto.html")

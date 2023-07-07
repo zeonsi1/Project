@@ -17,7 +17,9 @@
         <div class="container-registro">
             <div class="columna">
                 <h2>Información Personal</h2>
-                <form class="form-registro">
+                
+                <form class="form-registro" method="POST" action="create-account">
+                    {% csrf_token %}
                     <label class="lblregistro" for="rut">RUT:</label>
                     <input class="iptregistro" type="text" id="rut" name="rut" required>
 
@@ -32,31 +34,21 @@
 
                     <label class="lblregistro" for="telefono">Teléfono:</label>
                     <input class="iptregistro" type="text" id="telefono" name="telefono" required>
-
-                </form>
-            </div>
-            
-            <div class="columna">
-                <form class="form-registro">
                      
                     <label class="lblcorreo" for="correo">Correo:</label>
                     <input class="iptregistro" type="email" id="correo" name="correo" required>
 
                     <label class="lblregistro" for="contrasena">Contraseña:</label>
-                    <input class="iptregistro" type="password" name="contraseña" required>
+                    <input class="iptregistro" type="password" name="contrasena" id="contrasena" required>
 
                     <label class="lblregistro" for="region">Región:</label>
                     <select class="ipt" name="region" id="region">
-                        {% for c in regions %}
-                        <option value = "{{c.id_region}}">{{c.region}}</option>
-                        {% endfor %}
+                        <option value = "" disable hidden>Seleccione una opcion</option>
                     </select>
 
                     <label class="lblregistro" for="comuna">Comuna:</label>
-                    <select class="ipt" name="comuna" id="comuna">
-                        {% for r in comun %}
-                        <option value = "{{c.id_comuna}}">{{c.comuna}}</option>
-                        {% endfor%}
+                    <select class="ipt" name="comuna" id="comuna" disabled>
+                        <option value = "" disable hidden>Seleccione una opcion</option>
                     </select>
 
                     <label class="lbldireccion" for="direccion">Dirección:</label>
@@ -65,6 +57,56 @@
                     <button class="boton-enviar" type="submit">Registrar</button>
                 </form>
             </div>
+            
         </div>
     </div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $.ajax({
+            url: "https://apis.digital.gob.cl/dpa/regiones",
+            type: "GET",
+            crossDomain: true,
+            dataType: "jsonp",
+            success: function (data) {
+                $.each(data, function(i, item){
+                    $("#region").append(
+                        "<option value='" + item.codigo + "'>" + item.nombre + "</option>"
+                    );
+                });
+            },
+            error: function(xhr, status, error) {
+                console.log("Error al obtener las regiones " + error);
+            },
+        });
+
+        $("#region").change(function(){
+            var idRegion = $("#region").val();
+
+            $("#comuna").attr("disabled", false);
+            
+
+            $("#comuna").empty();
+            $("#comuna").append("<option hidden disable>Seleccione una opcion</option>");
+
+            $.ajax ({
+                url: "https://apis.digital.gob.cl/dpa/regiones/"+idRegion+"/comunas",
+                type: "GET",
+                crossDomain: true,
+                dataType: "jsonp",
+                success: function (data) {
+                $.each(data, function (i, item) {
+                    $("#comuna").append(
+                    "<option value='" + item.codigo + "'>" + item.nombre + "</option>"
+                    );
+                });
+                },
+                error: function (xhr, status, error) {
+                console.log("Error al obtener las regiones: " + error);
+                },
+            });
+        });
+
+    });
+</script>

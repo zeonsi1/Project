@@ -15,8 +15,14 @@
     <!-- Barra de navegacion -->
     <header class="header">
         <div class="sesion">
+            {% if user.is_authenticated%}
+            <a href="">
+                <img src="{% static 'img/user.png'%}" alt="user">
+            </a>
+            {% else %}
             <a class="elemento text-decoration-none" href="{% url 'login'%}">Inicio Sesion</a>
             <a class="elemento text-decoration-none" href="{% url 'create-account'%}">Registrarme</a>
+            {% endif %}
         </div>
         <div class="contenedor">
             <div class="barra">
@@ -26,47 +32,7 @@
                 <nav class="navegacion">
                     <a href="{% url 'producto'%}" class="navegacion__enlace text-decoration-none">productos</a>
                     <a href="{% url 'nosotros'%}" class="navegacion__enlace text-decoration-none">nosotros</a>
-                    <a href="{% url 'contacto'%}" class="navegacion__enlace text-decoration-none">contacto</a>
-                    <div class="container-icon">
-                        <div class="container-cart-icon">
-                            <svg class="icon-carrito" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
-                                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                            </svg>
-                            <div class="count-products">
-                                <span id="contador-productos">0</span>
-                            </div>
-                        </div>
-                        
-                        <div class="container-cart-products hidden-cart">
-                            <div class="row-product">
-                                <div class="cart-product">
-                                    <div class="info-cart-product">
-                                        <span class="cantidad-producto-carrito"></span>
-                                        <p class="titulo-producto-carrito"></p>
-                                        <span class="precio-producto-carrito"></span>
-                                    </div>
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke-width="1.5"
-                                        stroke="currentColor"
-                                        class="icon-close"
-                                    >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            d="M6 18L18 6M6 6l12 12"
-                                        />
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="cart-total">
-                                <h3>Total:</h3>
-                                <span class="total-pagar">$</span>
-                            </div>
-                        </div>
-                    </div>
+                    <a href="{% url 'contacto'%}" class="navegacion__enlace text-decoration-none">contacto</a>                
                 </nav>
             </div>
         </div>
