@@ -440,7 +440,7 @@ button:hover div:last-child {
 
 @media (min-width: 768px) {
     .producto__imagen {
-        margin-left: 7rem;
+        margin-left: 15rem;
     }    
 }
 

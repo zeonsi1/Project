@@ -3,6 +3,7 @@ from .models import producto, usuario, tipoUsuario
 from django.shortcuts import render
 from django.core.mail import send_mail
 from .forms import EmailForm
+from django.contrib.auth import authenticate
 
 # Create your views here.
 def email_view(request):
@@ -71,13 +72,16 @@ def createuser(request):
 def login(request):
     context = {}
     if request.method != 'POST':
-        return render(request, "login.html", context)
+        return render(request, "login.html")
     else:
-        email = request.POST["email"]
-        password = request.POST["password"]
+        email = request.POST["correo"]
+        password = request.POST["pass"]
 
-        if usuario.objects.get(correo_usuario = email) and usuario.objects.get(contra_usuario = password):
-            request.session[""]
+        usuario = authenticate(request, correo_usuario = email, contra_usuario = password)
+        if usuario is None:
+            return render(request, "login.html", {
+                'error': 'E-mail o contraseña es Incorrecto'
+            })
 
 def productos(request):
     products = producto.objects.all()
